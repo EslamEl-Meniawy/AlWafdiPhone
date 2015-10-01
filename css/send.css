@@ -1,0 +1,143 @@
+@font-face {
+  font-family: 'Droid Arabic Naskh';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/DroidNaskh-Regular.eot);
+  src: url(../fonts/DroidNaskh-Regular.eot?#iefix) format('embedded-opentype'),
+       url(../fonts/DroidNaskh-Regular.woff2) format('woff2'),
+       url(../fonts/DroidNaskh-Regular.woff) format('woff'),
+       url(../fonts/DroidNaskh-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Droid Arabic Naskh';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts/DroidNaskh-Bold.eot);
+  src: url(../fonts/DroidNaskh-Bold.eot?#iefix) format('embedded-opentype'),
+       url(../fonts/DroidNaskh-Bold.woff2) format('woff2'),
+       url(../fonts/DroidNaskh-Bold.woff) format('woff'),
+       url(../fonts/DroidNaskh-Bold.ttf) format('truetype');
+}
+body {
+	padding: 0;
+	background: #fff;
+	text-align: right;
+	margin: 0 auto;
+	font-size: 14pt;
+	font-family: 'Droid Arabic Naskh';
+}
+a img {
+	border: 0;
+}
+a {
+	text-decoration: none;
+	transition: all 0.3s ease-in 0s;
+}
+.head {
+	height: 72px;
+	width: 100%;
+	background: #ddd;
+	position: fixed;
+	top: 0;
+	z-index: 2;
+	-webkit-backface-visibility: hidden;
+}
+#content, #noconnection {
+	position: relative;
+	top: 72px;
+	width: 100%;
+}
+.logo {
+	float: right;
+	background: url(../img/logo.jpg) no-repeat;
+	height: 72px;
+	width: 143px;
+}
+.icomenu {
+	float: left;
+	height: 72px;
+	vertical-align: middle;
+}
+.icon {
+	float: left;
+	cursor: pointer;
+	height: 72px;
+	width: 48px;
+	margin: 0 13px;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-focus-ring-color: rgba(255, 255, 255, 0);
+}
+.icon:focus {
+    outline: 0;
+    border: none;
+}
+#back {
+	background: url(../img/back.jpg) no-repeat center;
+}
+.bot {
+	text-align: center;
+}
+.stbot {
+	text-align: center;
+	line-height: 50px;
+	font-size: 1rem;
+	margin: 4px 0;
+	display: inline-block;
+	background: #ff9600;
+	border-radius: 3px;
+	border-bottom: 3px solid #ff5400;
+	width: 93px;
+	height: 50px;
+	color: #fff;
+	cursor: pointer;
+}
+.botr {
+	padding-right: 5px;
+	width: 100%;
+	height: 63px;
+}
+#attach {
+	width: 120px;
+	float: right;
+}
+form {
+	font-weight: bold;
+	width: 95%;
+	margin: 0 auto;
+}
+input, textarea {
+	width: 95%;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ccc;
+}
+textarea {
+	height: 150px;
+}
+#imagetitle {
+	display: inline-block;
+	line-height: 50px;
+	margin: 4px 0;
+	height: 50px;
+	font-size: 1rem;
+	padding-right: 5px;
+	font-weight: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+#loading, #noconnection {
+	display: none;
+}
+#noconnection {
+	text-align: center;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+#loading {
+	text-align: center;
+	background: url(../img/loadingrefresh.gif) no-repeat center;
+	width: 100%;
+	height: 20px;
+}

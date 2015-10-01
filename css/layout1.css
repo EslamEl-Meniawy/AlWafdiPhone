@@ -1,0 +1,285 @@
+@font-face {
+	font-family: 'Droid Arabic Naskh';
+	font-style: normal;
+	font-weight: 400;
+	src: url(../fonts/DroidNaskh-Regular.eot);
+	src: url(../fonts/DroidNaskh-Regular.eot?#iefix) format('embedded-opentype'),
+		 url(../fonts/DroidNaskh-Regular.woff2) format('woff2'),
+		 url(../fonts/DroidNaskh-Regular.woff) format('woff'),
+		 url(../fonts/DroidNaskh-Regular.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'Droid Arabic Naskh';
+	font-style: normal;
+	font-weight: 700;
+	src: url(../fonts/DroidNaskh-Bold.eot);
+	src: url(../fonts/DroidNaskh-Bold.eot?#iefix) format('embedded-opentype'),
+		 url(../fonts/DroidNaskh-Bold.woff2) format('woff2'),
+		 url(../fonts/DroidNaskh-Bold.woff) format('woff'),
+		 url(../fonts/DroidNaskh-Bold.ttf) format('truetype');
+}
+body,html {
+	position: relative;
+	height: 100%;
+}
+html {
+	font-size: 14pt;
+}
+body {
+	background: #fff;
+	text-align: right;
+	margin: 0;
+	padding: 0;
+	font-family: 'Droid Arabic Naskh';
+}
+a img {
+	border: 0;
+}
+a {
+	text-decoration: none;
+	transition: all 0.3s ease-in 0s;
+}
+* {
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-focus-ring-color: rgba(255, 255, 255, 0);
+}
+*:focus {
+	outline: 0;
+    border: none;
+}
+.head {
+	height: 72px;
+	width: 100%;
+	background: #ddd;
+}
+.logo {
+	float: right;
+	background: url(../img/logo.jpg) no-repeat;
+	height: 72px;
+	width: 143px;
+}
+.icomenu {
+	float: left;
+	height: 72px;
+	vertical-align: middle;
+}
+.icon {
+	float: left;
+	cursor: pointer;
+	height: 72px;
+	width: 48px;
+	margin: 0 13px;
+}
+#edit {
+	background: url(../img/sittings.jpg) no-repeat center;
+}
+#refresh {
+	background: url(../img/refresh.jpg) no-repeat center;
+}
+#loading {
+	background: url(../img/loadingrefresh.gif) no-repeat center;
+}
+#urgentpop {
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	-webkit-transition: all 2s;
+	transition: all 2s;
+	overflow: hidden;
+	color: #333;
+	background:#eee;
+	border-radius: 4px;
+	box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+	z-index: 3;
+}
+#urgentpoptitle {
+	text-align: center;
+	font-size: 0.9rem;
+	font-weight: bold;
+	width: 100px;
+	margin: 0 auto;
+	margin-top: 5px;
+	color: #ff0000;
+}
+#urgentpoptext {
+	direction: rtl;
+	text-align: right;
+	font-size: 12pt;
+	padding: 5px 10px;
+	min-height: 120px;
+}
+#urgentpopclose {
+	text-align: center;
+	font-size: 0.9rem;
+	font-weight: bold;
+	width: 100px;
+	margin: 0 auto;
+	background:#ddd;
+	padding: 5px;
+}
+.instructions {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	-webkit-backface-visibility: hidden;
+	top: 0;
+	z-index: 5;
+	background: rgba(0, 0, 0, 0.7);
+}
+.instructionscontent {
+	padding: 10px;
+}
+.instructionssettings, .instructionsrefresh, .instructionsswipeleftright, .instructionsswipeupdown, .theme {
+	margin-bottom: 10px;
+}
+.spantext {
+	height: 45px;
+	line-height: 45px;
+	padding-right: 10px;
+	color: #fff;
+}
+.instructionsimage {
+	width: 48px;
+	height: 45px;
+	float: right;
+}
+.theme {
+	color: #fff;
+}
+.wipeimage {
+	float: right;
+	background: #ddd;
+}
+.wipespan {
+	padding-right: 10px;
+	color: #fff;
+}
+.closesettingscontainer {
+	width: 100%;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.closesettings {
+	text-align: center;
+	background: #ddd;
+	color: #333;
+	padding: 15px;
+	width: 70px;
+	margin: 10px auto;
+}
+#loading, .instructions {
+	display: none;
+}
+.swiper-pages {
+	height: 100%;
+}
+.scroll-container {
+	height: 100%;
+	width: 100%;
+}
+.scroll-container .swiper-slide {
+	width: 100%;
+}
+.swiper-slide {
+	float: right;
+}
+.sectitle {
+	font-size: 1rem;
+	color: #ffffff;
+	background: #ff9600;
+	font-weight: bold;
+	padding-right: 5px;
+	height: 36px;
+	line-height: 36px;
+}
+.image {
+	width: 100%;
+	position: relative;
+}
+.image img {
+	width: 100%;
+	height: auto;
+}
+.title {
+	position: absolute;
+	bottom: 10px;
+	right: 0;
+	text-align: right;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	padding-right: 5px;
+}
+.titles {
+	font-size: 1.2rem;
+	color: #FFFFFF;
+	font-weight: bold;
+	height: 75px;
+	line-height: 32px;
+	overflow: hidden;
+	direction: rtl;
+}
+.twocontainer {
+	width: 100%;
+	overflow: hidden;
+	text-align: center;
+}
+.two {
+	width: 42%;
+	display: inline-block;
+	background: #EDEDED;
+	border-bottom: 1px solid #E0E0E0;
+	margin: 5px;
+	padding: 5px;
+}
+.images {
+	width: 100%;
+	height: auto;
+}
+.twotitle {
+	width: 100%;
+	height: 50px;
+	line-height: 25px;
+	overflow: hidden;
+	color: #000000;
+	font-size: 0.9rem;
+	float: right;
+	direction: rtl;
+}
+.restofnewsnews {
+	width: 97%;
+	height: 100px;
+	background: #EDEDED;
+	border-bottom: 1px solid #E0E0E0;
+	margin: 10px auto;
+}
+.restofnewsimage {
+	width: 36%;
+	height: 90px;
+	display: inline-block;
+	float: right;
+	margin: 5px 5px;
+}
+.restofnewsimage img {
+	width: 100%;
+	height: 100%;
+}
+.resttitle {
+	float: left;
+	font-size: 1rem;
+	color: #000000;
+	padding: 0 5px;
+	width: 57%;
+	height: 90px;
+	line-height: 30px;
+	overflow: hidden;
+	direction: rtl;
+}
