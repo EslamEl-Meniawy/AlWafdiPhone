@@ -11,8 +11,8 @@ var timeout;
 var timpTSlide = '<div class="swiper-slide" id="sec{{i}}"><div class="swiper-container scroll-container"><div class="swiper-wrapper"><div class="swiper-slide"><div class="page-inner"><a href="details.html?slider={{i}}&id=0"><div class="image"><img src="img/loading.png" id="sec{{i}}-image-0" /><div class="title titles" id="sec{{i}}-title-0"></div></div></a><div class="twocontainer"><a href="details.html?slider={{i}}&id=2"><div class="two"><img src="img/loading.png" class="images" id="sec{{i}}-image-2" /><div class="twotitle" id="sec{{i}}-title-2"></div></div></a><a href="details.html?slider={{i}}&id=1"><div class="two"><img src="img/loading.png" class="images" id="sec{{i}}-image-1" /><div class="twotitle" id="sec{{i}}-title-1"></div></div></a></div><a href="details.html?slider={{i}}&id=3"><div class="restofnewsnews"><div class="restofnewsimage"><img src="img/loading.png" id="sec{{i}}-image-3" /></div><div class="resttitle" id="sec{{i}}-title-3"></div></div></a><a href="details.html?slider={{i}}&id=4"><div class="restofnewsnews"><div class="restofnewsimage"><img src="img/loading.png" id="sec{{i}}-image-4" /></div><div class="resttitle" id="sec{{i}}-title-4"></div></div></a><a href="details.html?slider={{i}}&id=5"><div class="restofnewsnews"><div class="restofnewsimage"><img src="img/loading.png" id="sec{{i}}-image-5" /></div><div class="resttitle" id="sec{{i}}-title-5"></div></div></a><a href="details.html?slider={{i}}&id=6"><div class="restofnewsnews"><div class="restofnewsimage"><img src="img/loading.png" id="sec{{i}}-image-6" /></div><div class="resttitle" id="sec{{i}}-title-6"></div></div></a><a href="details.html?slider={{i}}&id=7"><div class="restofnewsnews"><div class="restofnewsimage"><img src="img/loading.png" id="sec{{i}}-image-7" /></div><div class="resttitle" id="sec{{i}}-title-7"></div></div></a><a href="details.html?slider={{i}}&id=8"><div class="restofnewsnews"><div class="restofnewsimage"><img src="img/loading.png" id="sec{{i}}-image-8" /></div><div class="resttitle" id="sec{{i}}-title-8"></div></div></a><a href="details.html?slider={{i}}&id=9"><div class="restofnewsnews"><div class="restofnewsimage"><img src="img/loading.png" id="sec{{i}}-image-9" /></div><div class="resttitle" id="sec{{i}}-title-9"></div></div></a><a href="details.html?slider={{i}}&id=10"><div class="restofnewsnews"><div class="restofnewsimage"><img src="img/loading.png" id="sec{{i}}-image-10" /></div><div class="resttitle" id="sec{{i}}-title-10"></div></div></a><a href="details.html?slider={{i}}&id=11"><div class="restofnewsnews"><div class="restofnewsimage"><img src="img/loading.png" id="sec{{i}}-image-11" /></div><div class="resttitle" id="sec{{i}}-title-11"></div></div></a><a href="details.html?slider={{i}}&id=12"><div class="restofnewsnews"><div class="restofnewsimage"><img src="img/loading.png" id="sec{{i}}-image-12" /></div><div class="resttitle" id="sec{{i}}-title-12"></div></div></a><a href="details.html?slider={{i}}&id=13"><div class="restofnewsnews"><div class="restofnewsimage"><img src="img/loading.png" id="sec{{i}}-image-13" /></div><div class="resttitle" id="sec{{i}}-title-13"></div></div></a><a href="details.html?slider={{i}}&id=14"><div class="restofnewsnews"><div class="restofnewsimage"><img src="img/loading.png" id="sec{{i}}-image-14" /></div><div class="resttitle" id="sec{{i}}-title-14"></div></div></a></div></div></div></div></div>';
 var activeCount = 0;
 var androidversion;
-var adUnit = "ca-app-pub-1333731159795332/9163703190";
-var adUnitFullScreen = "ca-app-pub-1333731159795332/9163703190";
+var bannerAdUnit;
+var interstitialAdUnit;
 var isOverlap = false;
 var isTest = false;
 // Change 14 to 15
@@ -28,17 +28,13 @@ for (var i = 0; i < 14; i++) {
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 	if (navigator.userAgent.match(/Android/i)) {
-		console.log("Android");
-		adUnit = "ca-app-pub-1333731159795332/9163703190";
-		adUnitFullScreen = "ca-app-pub-1333731159795332/9163703190";
+		bannerAdUnit = "ca-app-pub-1333731159795332/9163703190";
+		interstitialAdUnit = "ca-app-pub-1333731159795332/9163703190";
 	} else if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
 		console.log("IOS");
-		adUnit = "ca-app-pub-1333731159795332/5058549996";
-		adUnitFullScreen = "ca-app-pub-1333731159795332/5058549996";
+		bannerAdUnit = "ca-app-pub-1333731159795332/5058549996";
+		interstitialAdUnit = "ca-app-pub-1333731159795332/5058549996";
 	}
-	window.admob.onBannerAdPreloaded = function() {
-        window.admob.showBannerAd('top-center', 'SMART_BANNER');
-    };
 	if (localStorage.getItem('layout1instructions') != 1) {
 		$('.instructions').show();
 	}
@@ -247,7 +243,10 @@ function loadAD() {
 	    		window.admob.preloadBannerAd();
 			}
 		});*/
-		window.admob.setUp(adUnit, adUnitFullScreen, isOverlap, isTest);
+		window.admob.setUp(bannerAdUnit, interstitialAdUnit, isOverlap, isTest);
+		window.admob.onBannerAdPreloaded = function() {
+	        window.admob.showBannerAd('top-center', 'SMART_BANNER');
+	    };
 	    window.admob.preloadBannerAd();
 	}
 }
