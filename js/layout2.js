@@ -13,7 +13,7 @@ var activeCount = 0;
 var androidversion;
 var bannerAdUnit = 'ca-app-pub-1333731159795332/4974164791';
 var interstitialAdUnit = 'ca-app-pub-1333731159795332/6450897994';
-var isOverlap = false;
+var isOverlap = true;
 var isTest = false;
 // Change 14 to 15
 for (var i = 0; i < 14; i++) {
@@ -219,8 +219,12 @@ function loadAD() {
 		});*/
 		window.admob.setUp(bannerAdUnit, interstitialAdUnit, isOverlap, isTest);
 		window.admob.onBannerAdPreloaded = function() {
-	        window.admob.showBannerAd('top-center', 'SMART_BANNER');
+	        $('#content').css('padding-bottom', '100px');
+	        window.admob.showBannerAd('bottom-center', 'SMART_BANNER');
 	    };
 	    window.admob.preloadBannerAd();
+	    window.onbeforeunload = function() {
+            window.admob.hideBannerAd();
+        };
 	}
 }
