@@ -11,10 +11,6 @@ var timeout;
 var timpTSlide = '<div class="swiper-container thumbs-cotnainer" id="sec{{i}}"><div class="thumbs-title">{{sectitle}}</div><div class="swiper-wrapper"><div class="swiper-slide"><a href="details.html?slider={{i}}&id=0"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-0"><div class="app-title" id="sec{{i}}-title-0"></div></div></a></div><div class="swiper-slide"><a href="details.html?slider={{i}}&id=1"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-1"><div class="app-title" id="sec{{i}}-title-1"></div></div></a></div><div class="swiper-slide"><a href="details.html?slider={{i}}&id=2"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-2"><div class="app-title" id="sec{{i}}-title-2"></div></div></a></div><div class="swiper-slide"><a href="details.html?slider={{i}}&id=3"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-3"><div class="app-title" id="sec{{i}}-title-3"></div></div></a></div><div class="swiper-slide"><a href="details.html?slider={{i}}&id=4"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-4"><div class="app-title" id="sec{{i}}-title-4"></div></div></a></div><div class="swiper-slide"><a href="details.html?slider={{i}}&id=5"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-5"><div class="app-title" id="sec{{i}}-title-5"></div></div></a></div><div class="swiper-slide"><a href="details.html?slider={{i}}&id=6"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-6"><div class="app-title" id="sec{{i}}-title-6"></div></div></a></div><div class="swiper-slide"><a href="details.html?slider={{i}}&id=7"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-7"><div class="app-title" id="sec{{i}}-title-7"></div></div></a></div><div class="swiper-slide"><a href="details.html?slider={{i}}&id=8"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-8"><div class="app-title" id="sec{{i}}-title-8"></div></div></a></div><div class="swiper-slide"><a href="details.html?slider={{i}}&id=9"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-9"><div class="app-title" id="sec{{i}}-title-9"></div></div></a></div><div class="swiper-slide"><a href="details.html?slider={{i}}&id=10"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-10"><div class="app-title" id="sec{{i}}-title-10"></div></div></a></div><div class="swiper-slide"><a href="details.html?slider={{i}}&id=11"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-11"><div class="app-title" id="sec{{i}}-title-11"></div></div></a></div><div class="swiper-slide"><a href="details.html?slider={{i}}&id=12"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-12"><div class="app-title" id="sec{{i}}-title-12"></div></div></a></div><div class="swiper-slide"><a href="details.html?slider={{i}}&id=13"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-13"><div class="app-title" id="sec{{i}}-title-13"></div></div></a></div><div class="swiper-slide"><a href="details.html?slider={{i}}&id=14"><div class="slide-content"><img src="img/loading.png" width="513" height="318" alt="" id="sec{{i}}-image-14"><div class="app-title" id="sec{{i}}-title-14"></div></div></a></div></div></div>';
 var activeCount = 0;
 var androidversion;
-var bannerAdUnit = 'ca-app-pub-1333731159795332/4974164791';
-var interstitialAdUnit = 'ca-app-pub-1333731159795332/6450897994';
-var isOverlap = true;
-var isTest = false;
 // Change 14 to 15
 for (var i = 0; i < 14; i++) {
 	if (checked[i] == 1) {
@@ -213,18 +209,15 @@ function loadAD() {
 			dataType : 'JSON'
 		}).done(function(response) {
 			if (response.ad == true) {
-				window.admob.setUp(adUnit, adUnitFullScreen, isOverlap, isTest);
-	    		window.admob.preloadBannerAd();
+				admob.initAdmob('ca-app-pub-1333731159795332/4974164791', 'ca-app-pub-1333731159795332/6450897994');
+		        var admobParam = new  admob.Params();
+		        admobParam.isTesting = false;
+		        admob.showBanner(admob.BannerSize.SMART_BANNER, admob.Position.TOP_APP, admobParam);
 			}
 		});*/
-		window.admob.setUp(bannerAdUnit, interstitialAdUnit, isOverlap, isTest);
-		window.admob.onBannerAdPreloaded = function() {
-	        $('#content').css('padding-bottom', '100px');
-	        window.admob.showBannerAd('bottom-center', 'SMART_BANNER');
-	    };
-	    window.admob.preloadBannerAd();
-	    window.onbeforeunload = function() {
-            window.admob.hideBannerAd();
-        };
+        admob.initAdmob('ca-app-pub-1333731159795332/4974164791', 'ca-app-pub-1333731159795332/6450897994');
+        var admobParam = new  admob.Params();
+        admobParam.isTesting = false;
+        admob.showBanner(admob.BannerSize.SMART_BANNER, admob.Position.TOP_APP, admobParam);
 	}
 }
